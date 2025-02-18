@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Var Let and Const</h1>
+    <h5>
+        Var -> function scope
+        <br>
+        Let -> Block scope
+        <br>
+        Const -> Block scope
+        <br>
+    </h5>
+
+    <h4>
+        Call Stack --> GEC (Global execution Stack)
+        <br>  
+        
+                   
+    </h4>
+
+    <script>
+
+
+        const temp=()=>{
+            if (true){
+                var usrname = 'Ram Ji';
+            }
+            console.log(usrname);
+        }
+        temp();
+        // console.log(usrname)
+
+        const summod10 = (a,b)=>{
+            const ans= (a+b)%10;
+            console.log(ans);
+            const printpreety = (txt)=>{
+                console.log('----',txt,'-----');
+            }
+            printpreety(ans)
+        }
+        summod10(9,10);   
+
+
+    </script>
+</body>
+</html>

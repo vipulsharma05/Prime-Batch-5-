@@ -1,0 +1,86 @@
+---------------------Call Back--------------------------
+ 
+ 1.   const sum = (a, b) => {
+        const ans = a + b;
+        return ans;
+      };
+      const printpretty = (txt) => {
+        console.log("_________");
+        console.log("txt");
+        console.log("_________");
+      };
+      const res = sum(20, 30);
+      printpretty(res);
+
+
+2. //  is this below te call back -------- NO
+      const sum = (a, b) => {
+        const ans = a + b;
+        return ans;
+      };
+      const printpretty = (txt) => {
+        console.log("_________");
+        console.log("txt");
+        console.log("_________");
+      };
+      printpretty(sum(20, 30));
+
+
+--> two phases of function -
+                       1. memory allocation
+                       2. execution phases
+
+--> callback is used for decoupling that means that is generalized like charger that is used by laptop and phone
+
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+for each loop -- The forEach() method calls a function for each element in an array.
+                 The forEach() method is not executed for empty elements.
+
+                 syntax  - array.foreach(function){
+                    body
+                 }
+
+                 const fruits = ["apple", "orange", "cherry"];
+                 fruits.forEach(myFunction);
+
+                 array.forEach(function(currentValue, index, arr), thisValue)
+                 
+1. function()	Required.
+2. A function to run for each array element.
+3. currentValue	Required.
+4. The value of the current element.
+5. index	Optional.
+6. The index of the current element.
+7. arr	Optional.
+8. The array of the current element.
+9. thisValue	Optional. Default undefined.
+10. A value passed to the function as its this value.
+
+
+---> here foreach is a higher order function and inner a function is a call back function
+
+
+
+master approach with 2 d array using entries..
+
+const gethighest = (obj)=>{
+    let max=0;
+    let maxsub = '';
+    const marks = OBject.entries(obj);
+    marks.foreach(elem)=>{
+        const subname = elem[0]
+        const submarks = elem[1];
+        if ( submarks>=max){
+            maxsub = subname
+            max = submarks
+        }
+    }
+    }
+
+
+
+
+     

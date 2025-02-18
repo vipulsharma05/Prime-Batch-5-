@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2><center>CallBacks</center></h2>
+    <script>
+
+
+    //   const sum = (a, b) => {
+    //     const ans = a + b;
+    //     return ans;
+    //   };
+    //   const printpretty = (txt) => {
+    //     console.log("_________");
+    //     console.log("txt");
+    //     console.log("_________");
+    //   };
+    //   const res = sum(20, 30);
+    //   printpretty(res);
+
+//  is this below te call back
+      const sum = (a, b) => {
+        const ans = a + b;
+        return ans;
+      };
+      const printpretty = (txt) => {
+        console.log("_________");
+        console.log("txt");
+        console.log("_________");
+      };
+      printpretty(sum(20, 30));
+
+
+    // Now take the example of the callback... ----- function that is passed as a argument to another function
+    const sum_call = (a, b,c) => {             // memory allocation
+        const ans = a + b;
+        // return ans;
+        c(ans);
+      };
+      const printpretty_call = (txt) => {      // memory allocation
+        console.log("_________");
+        console.log("txt");
+        console.log("_________");
+      };
+
+      sum(20,30,printpretty_call);           // execution phase
+
+
+    //   higher order function is a function that accepts a function as a argument and return a function...
+    // ------in above printpretty is a call back function..
+
+   
+    
+      
+    </script>
+  </body>
+</html>

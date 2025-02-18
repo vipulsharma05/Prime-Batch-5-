@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const getmetaData = () => {
+        const name = prompt("Please enter your name: ");
+        console.log("Hello_", name);
+        const nosubtext = prompt("please enter the number the subject: ");
+        const nosub = parseInt(nosubtext);
+        return nosub;
+      };
+
+      const getSubject = (num) => {
+        const data = {};
+        for (let i = 0; i < num; i++) {
+          const subName = prompt(`Please enter the name of the subject ${i}`);
+          const marks = prompt(`please enter the marks for ${subName}`);
+          data[subName] = parseInt(marks);
+        }
+        return data;
+        console.log(data);
+      };
+      const gotpercent = (data, num) => {
+        let sum = 0;
+        const marks1 = Object.values(data);
+        marks1.forEach((element) => {
+          sum += element;
+        });
+        return sum / num;
+      };
+
+      const getHighestpercent = (obj) => {
+        const sub = Object.keys(obj)
+        const mark = Object.values(obj);
+        let max = mark[0];
+        let ind = 0;
+        mark.forEach((ele,i) => {
+          if (ele > max) {
+            max = ele;
+            ind = i;
+          }
+        });
+        return sub[ind];
+      };
+    //   get grades
+    const getgrades = (percentage)=>{
+        const grades= [
+            [60,'B'],
+            [70,'B+'],
+            [80,'A'],
+            [90,'A+']
+        ]
+        let grade = ''
+        grades.forEach((arr)=>{
+            if(arr[0]<=percentage){
+                grade = arr[1];
+            }
+        })
+    }
+
+      const num = getmetaData();
+      const data = getSubject(num);
+      const res = gotpercent(data, num);
+      console.log(res);
+
+      const maxxi = getHighestpercent(data);
+      console.log(maxxi);
+    </script>
+  </body>
+</html>
