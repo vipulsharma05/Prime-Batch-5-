@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr = [10,20,30];
+        //  without default value
+
+        // arr.reduce((acc,ele,idx,c)=>{
+        //     console.log(acc,ele,idx,c);
+        // });
+
+        //  with default value
+
+        // arr.reduce((acc,ele,idx,c)=>{
+        //     console.log(acc,ele,idx,c);
+        // },0);
+
+        // use case :1 :sum;
+        const sum = arr.reduce((acc,ele)=>{
+            return (acc+ele);
+        },0);
+        console.log(sum)
+        
+        // use case :2 :product;
+        
+        const res = arr.reduce((acc,ele)=>{
+            return acc*ele;
+        })
+        console.log(res)
+
+        const newarray =arr.reduce((acc,ele)=>{
+            acc.push(ele*2);
+            return acc;
+        },[]);
+        console.log(newarray);
+
+    </script>
+</body>
+</html>
