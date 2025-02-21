@@ -1,0 +1,16 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    padding: 1rem;
+}
+.card{
+    width: 400px;
+    background-color: hotpink;
+    border: 2px dotted rgba(14, 208, 192, 0.87);
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 0.75rem;
+}
