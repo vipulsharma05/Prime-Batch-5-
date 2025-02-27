@@ -5,40 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
-            padding: 0;
+       * {
             margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
-        nav{
-            padding: 1rem;
+
+        nav {
+            padding: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: yellow;
         }
-        input{
+
+        input {
             padding: 0.25rem 0.7rem;
+            border-radius: 0.5rem;
+            border: 1px solid grey;
         }
-        .search-container{
+
+        .search-container {
             position: relative;
         }
-        #location{
+
+        #locations {
             position: absolute;
+            background-color: black;
+            color: white;
+            border-radius: 0.5rem;
         }
-        p{
+
+        p {
             padding: 0.25rem 1rem;
-            border-bottom: 1px soid green;
+            border-bottom: 1px solid lime;
+            font-size: 0.75rem;
+            transition: all 600ms ease;
+        }
+
+        p:last-of-type {
+            border-bottom: none;
+        }
+
+        p:hover {
+            cursor: pointer;
+            background-color: rgb(31, 40, 50);
         }
     </style>
 </head>
 <body>
     <nav>
-        <input onkeyup="handleSearch(event)">
-        <div id="location">
-
+        <div class="search-container">
+            <input onkeyup="handleSearch(event)">
+            <div id="locations">
+            </div>
         </div>
     </nav>
+
+    <div id="location-info"></div>
     <script src="/DAY10/location.js"></script>
 </body>
 </html>

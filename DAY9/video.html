@@ -3,7 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>     
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      iframe {
+        display: block;
+        margin: 0 auto;
+      }
+      .comment-section {
+        margin-top: 20px;
+      }
+      .comment-section form {
+        display: flex;
+        flex-direction: column;
+      }
+      .comment-section input,
+      .comment-section textarea {
+        margin-bottom: 10px;
+        padding: 8px;
+        font-size: 16px;
+      }
+      .comment-section button {
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      .comment-section button:hover {
+        background-color: #0056b3;
+      }
+      .comments-list {
+        margin-top: 20px;
+      }
+      .comments-list .comment {
+        border-bottom: 1px solid #ccc;
+        padding: 10px 0;
+      }
+      .comments-list .comment:last-child {
+        border-bottom: none;
+      }
+      .comments-list .comment .name {
+        font-weight: bold;
+      }
+      .comments-list .comment .text {
+        margin: 5px 0;
+      }
+    </style>
   </head>
 
   <body>
@@ -30,14 +81,14 @@
     <script>
       const iframe = document.querySelector("iframe");
       const [a, videoId] = window.location.search.split("=");
-    
 
       iframe.src = `https://www.youtube.com/embed/${videoId}`;
 
       const youtubeHistory = localStorage.getItem("yt_history");
       if (!youtubeHistory) {
         const newhistory = [];
-        newhistory.push(videoId);8
+        newhistory.push(videoId);
+        8;
         localStorage.setItem("yt_history", JSON.stringify(newhistory));
       } else {
         const newhistory = JSON.parse(youtubeHistory);
@@ -45,8 +96,49 @@
         localStorage.setItem("yt_history", JSON.stringify(newhistory));
       }
 
+      const loadComments = () => {
+        const commentsList = document.getElementById("commentsList");
+        commentsList.innerHTML = "";
 
-  
+        const comments =
+          JSON.parse(localStorage.getItem(`comments_${videoId}`)) || [];
+
+        comments.forEach((comment) => {
+          const commentEl = document.createElement("div");
+          commentEl.classList.add("comment");
+          commentEl.innerHTML = `
+            <div class="name">${comment.name}</div>
+            <div class="text">${comment.text}</div>
+          `;
+          commentsList.appendChild(commentEl);
+        });
+      };
+
+      // Event listener for form submission
+      const commentForm = document.getElementById("commentForm");
+      commentForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const comment = document.getElementById("comment").value.trim();
+
+        if (name && comment) {
+          const comments =
+            JSON.parse(localStorage.getItem(`comments_${videoId}`)) || [];
+          comments.push({ name, text: comment });
+          localStorage.setItem(`comments_${videoId}`, JSON.stringify(comments));
+
+          // Clear form inputs
+          document.getElementById("name").value = "";
+          document.getElementById("comment").value = "";
+
+          // Reload comments
+          loadComments();
+        }
+      });
+
+      // Load comments on page load
+      window.onload = loadComments;
     </script>
   </body>
 </html>
