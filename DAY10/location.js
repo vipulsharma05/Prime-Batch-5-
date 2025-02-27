@@ -26,6 +26,7 @@ const showLocations = (data)=>{
     });
     console.log(data)
 }
+
 const handleSearch=(e)=>{
     getData(e.target.value)
 }
