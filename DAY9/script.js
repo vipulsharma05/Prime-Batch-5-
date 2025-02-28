@@ -18,7 +18,7 @@
 // getData()
 
 
-const dummyData = [
+const dummydata = [
     {
         "type": "video",
         "title": "Beyoncé - Chapter 02 \"POOL HALL\" LEVIIS JEANS",
@@ -5721,6 +5721,41 @@ const dummyData = [
     }
 ]
 
+const root1=document.querySelector('main')
+const getData=(text)=>{
+    root.innerHTML=""
+    dummydata.forEach((obj)=>{
+        const searchele=document.createElement('div')
+        searchele.id="searchedele"
+        if(obj.title.toLowerCase().includes(text.toLowerCase())){
+            //root.innerHTML=""
+            console.log(obj.videoId)
+            const ele=document.createElement('div')
+            ele.className="card1"
+            ele.innerHTML=`
+            <iframe width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/${obj.videoId}" 
+                title="YouTube video player" 
+                frameborder="0" 
+                width="100%"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <h6>${obj.author}</h6>
+                <h4>${obj.title}</h4>`
+            searchele.appendChild(ele)
+            root1.appendChild(searchele)
+        }
+    })
+}
+const handleSearch=()=>{
+    const search=document.getElementById("search")
+    console.log(search.value)
+    //const searchele=search.ariaValueMax.trim()
+    //console.log(searchele)
+    getData(search.value)
+    
+}
+
 const root = document.querySelector('main')
 const showUI = ((list)=>{
     list.forEach((obj )=> {
@@ -5738,4 +5773,4 @@ const showUI = ((list)=>{
     });
     
 })
-showUI(dummyData)
+showUI(dummydata)
