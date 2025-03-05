@@ -1,0 +1,15 @@
+.card{
+    margin: 1rem auto;
+    max-width: 400px;
+    background-color: rgb(230, 194, 127);
+    padding: 1rem;
+    border: 2px dotted blue;
+    border-radius: 10px;
+}
+.card:hover{
+    transform: scale(1.2);
+    background-color: rgb(95, 95, 160);
+}
+body{
+    background-color: rgb(155, 103, 89);
+}
