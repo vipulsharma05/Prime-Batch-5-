@@ -13,3 +13,9 @@
 body{
     background-color: rgb(155, 103, 89);
 }
+.submit{
+    background-color: aquamarine;
+}
+.danger{
+    background-color: azure;
+}

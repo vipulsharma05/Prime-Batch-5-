@@ -22,7 +22,8 @@ const reactRoot = ReactDOM.createRoot(domRoot);
 const App = ()=>{
     return (
         <div>
-            <Button>Submit</Button>
+            <Button color='submit'>Submit</Button>
+            <Button color='danger'>Cancel</Button>
             <Walpaper username={Title}>  </Walpaper>
             <Walpaper username="Vipul">  </Walpaper>
             <Walpaper username="Vipin">   </Walpaper>
