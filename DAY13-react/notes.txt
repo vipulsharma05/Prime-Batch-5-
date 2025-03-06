@@ -1,0 +1,29 @@
+StrictMode-- > run this 2 time and check ....
+
+
+1. npm create vite@latest
+
+---> in package.json
+2. dev dependendcies -- for development
+3. dependencies -- for production..
+
+
+4.. npm i
+5.. npm run dev is equivalennt to npx
+
+if we write any other name in packag.json
+in place of this 
+"dev": "vite",
+
+then we write,
+"<name>" :"vite"
+
+npm run <name>
+
+
+dev - for development
+build -- for production
+preview -- show after build..
+lint -- health check
+
+6. npm i react-router
